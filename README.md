@@ -8,6 +8,11 @@ Wireframes
 ![Screenshot](./IMG_9469 2.jpeg)
 
 
+https://github.com/Korpics/BandMate
+
+![alt text](https://github.com/Korpics/BandMate/master/IMG_9469 2.jpeg)
+
+
 
 Priority Matrix
 
