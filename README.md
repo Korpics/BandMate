@@ -45,7 +45,7 @@ Toggle Sound per 'User Card' to hear a snippet of original music from the creato
 
 
 ERD
-TBD - having a hard time figuring this one out. 
+https://imgur.com/a/vFucqDA (Still figuring this out)
 
 UI Components
 App.js stateful
