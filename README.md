@@ -4,7 +4,7 @@ Tinder inspired Band Member match maker.
 A Full-Stack Application that matches users with potential band members based on Music Influence, Genre, Distance, or Instrument. 
 
 Wireframes
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/d9HDLbJ"><a href="//imgur.com/d9HDLbJ"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+https://imgur.com/a/d9HDLbJ
 
 
 Priority Matrix
