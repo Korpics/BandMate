@@ -1,0 +1,39 @@
+{
+  "name": "BandMate",
+  "version": "1.0.0",
+  "description": "Tinder inspired Band Member match maker.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "db:init": "dropdb --if-exists bandDb && createdb bandDb",
+    "db:reset": "node ./scripts/resetDb.js",
+    "db:seed": "node ./scripts/seedDb.js",
+    "db:create": "createdb band_mate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Korpics/BandMate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Korpics/BandMate/issues"
+  },
+  "homepage": "https://github.com/Korpics/BandMate#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.11.0",
+    "sequelize": "^5.8.7"
+  }
+}
