@@ -42,9 +42,6 @@ userRouter.post('/signup', async (req,res,next) => {
     })(req, res, next)
 })
 
-const express = require('express');
-const userRouter = express.Router();
-
 userRouter.get('/', async (req, res) => {
   try {
     const allUsers = await User.findAll();
