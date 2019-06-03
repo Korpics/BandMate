@@ -10,7 +10,7 @@ Wireframes
 
 https://github.com/Korpics/BandMate
 
-![alt text](https://github.com/Korpics/BandMate/master/IMG_9469_2.jpeg)
+![alt text](https://github.com/Korpics/BandMate/blob/master/IMG_8740%202.jpeg)
 
 
 
