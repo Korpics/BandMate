@@ -3,6 +3,8 @@ Tinder inspired Band Member match maker.
 
 A Full-Stack Application that matches users with potential band members based on Music Influence, Genre, Distance, or Instrument. 
 
+Jerry McJamsAlot has been playing a ton of guitar in his small dark apartment lately. He would like to take things a step further and maybe try to start a band. The issue is that Jerry grew up listening to Robert Smith and dancing to Crystal Castles - and had no interest in collabing with his childhood friend Mikey - who was a huge U2 fan (Me too Mikey, Boy was a great album). Yet because of Jerry's limited resources(and friends), he had no choice but to attempt formation with one of the only musicians he's currently in touch with.  Knowing this, he decided to to download BandMate - an application for musicians who would like to quickly connect with like minded individuals NYC musicians in hopes of forming a band. Jerry has started many bands in the past - but always found that he was pouring hours of invested time into a band of musicians that simply do not mix. Knowing this application was meant for talanted musicians to address their needs efficiently, Jerry gave it a try.. and managed to get a few matches in just a handful of hours. 
+
 Wireframes
 https://imgur.com/a/d9HDLbJ
 
