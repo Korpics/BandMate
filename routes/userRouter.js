@@ -78,9 +78,9 @@ userRouter.put('/:id', async (req, res) => {
   try {
     const id = req.params.id;
     const grabbedUser = await User.findByPk(id);
-    if (grabbedUser) await grabbedUser.update(req.body);
-    res.json({
-      grabbedUser
+    newUser = await grabbedUser.update(req.body);
+     res.json({
+      newUser
     });
   } catch(e) {
     res.status(304).json({

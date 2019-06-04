@@ -55,18 +55,19 @@ const User = bandDb.define("users", {
     }
   })
 
-  const Friendship = bandDb.define("friendships", {
 
-
+  User.belongsToMany(User, {
+    as: 'Friends',
+    foreignKey: 'FriendId',
+    through: 'friends'
   })
- 
+  User.belongsToMany(User, {
+    as: 'Friends2',
+    foreignKey: 'FriendId2',
+    through: 'friends'
+  })
 
-   User.belongsToMany(User, {
-    through: "friendships", 
-    as: "friends",
-    foreignKey: "userId",
-    otherKey: "user2Id"
-   })
+
 
 
   User.beforeCreate(async (user,options) => {
@@ -82,6 +83,5 @@ const User = bandDb.define("users", {
 
   module.exports = {
     bandDb,
-    Friendship,
     User
   }

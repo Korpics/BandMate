@@ -15,6 +15,7 @@ const seedDb = async () => {
         "influences": "Modest Mouse",
         "bio": "I am a sad boy and no longer want to be a sad boy oh man please match me so that we can play music together oh what fun that would be"
     })
+
     const tryharder = await User.create ({
         "username": 'LBJ',
         "password": 'LBJpassword',
@@ -28,6 +29,8 @@ const seedDb = async () => {
         "bio": "nice stuff there yeah"
     })
 
+   await tryhard.setFriends(tryharder)
+   await tryharder.setFriends(tryhard)
     // const creator = await User.bulkCreate(users)
   } catch (e) { 
       console.log('models issue ****' + e);
@@ -35,6 +38,7 @@ const seedDb = async () => {
     await process.exit();
   }
 }
+
 
 
 seedDb();
