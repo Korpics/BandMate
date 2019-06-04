@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const bcrypt = require('bcrypt')
 
 const bandDb = new Sequelize({
   database: 'bandDb',
@@ -46,7 +47,7 @@ const User = bandDb.define("users", {
     },
     bio: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     image: {
         type: Sequelize.STRING,
@@ -54,8 +55,33 @@ const User = bandDb.define("users", {
     }
   })
 
+  const Friendship = bandDb.define("friendships", {
+
+
+  })
+ 
+
+   User.belongsToMany(User, {
+    through: "friendships", 
+    as: "friends",
+    foreignKey: "userId",
+    otherKey: "user2Id"
+   })
+
+
+  User.beforeCreate(async (user,options) => {
+    const hashedPassword = await bcrypt.hash(user.password, 12);
+    user.password = hashedPassword;
+  })
+
+
+
+
+
+
 
   module.exports = {
     bandDb,
+    Friendship,
     User
   }

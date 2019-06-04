@@ -1,6 +1,7 @@
 const express = require('express');
 const userRouter = express.Router();
 const { passport, jwtSign } = require('../auth/auth')
+const {User} = require('../models')
 
 
 userRouter.post('/login', async (req,res, next) => {
@@ -76,7 +77,7 @@ userRouter.get('/:id', async (req, res) => {
 userRouter.put('/:id', async (req, res) => {
   try {
     const id = req.params.id;
-    const grabbedUser = await AUser.findByPk(id);
+    const grabbedUser = await User.findByPk(id);
     if (grabbedUser) await grabbedUser.update(req.body);
     res.json({
       grabbedUser

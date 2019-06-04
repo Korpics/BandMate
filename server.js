@@ -6,6 +6,7 @@ const logger = require('morgan')
 const { userRouter } = require('./routes/userRouter');
 const { authorized } = require('./auth/auth');
 
+
 const PORT = process.env.PORT || 3000
 const app = express();
 

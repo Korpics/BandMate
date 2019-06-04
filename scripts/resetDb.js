@@ -1,10 +1,9 @@
-const { bandDb, User } = require('../models');
+const { bandDb } = require('../models');
 
 
 const resetDb = async () => {
   try {
-    bandDb.sync({ force: true });
-    User.sync({ force: true });
+    await bandDb.sync({ force: true });
     console.log('noice, database synced');
   } catch (e) {
     console.log(e);
