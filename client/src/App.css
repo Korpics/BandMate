@@ -29,6 +29,14 @@
 .authimageClass {
   max-width: 200px;
 }
+.goodbye{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.sadface{
+  justify-content: space-around;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { putUsers } from '../services/userApi';
+import { putUsers, deleteUsers } from '../services/userApi';
 import {Redirect} from 'react-router-dom';
 
 class Settings extends Component {
@@ -15,7 +15,8 @@ class Settings extends Component {
             borrough: null,
             bio: null,
             image: null,
-            updatedUser: false
+            updatedUser: false,
+            deleted: false
         }
     }
     handleFill = async () => {
@@ -56,6 +57,15 @@ class Settings extends Component {
         await putUsers(id, newUser);
         await this.setState({updatedUser: true});
 
+
+    }
+
+    onDelete = async(e) => {
+        e.preventDefault();
+        const id = this.props.user.id
+        await deleteUsers(id)
+        await this.setState({deleted: true})
+
     }
 
     componentDidMount = () => {
@@ -63,12 +73,12 @@ class Settings extends Component {
     }
     render() {
         if(this.state.updatedUser){
-            return <Redirect to='/' />
-        }
+            return <Redirect to='/Dashboard' />
+        } else if(!this.state.updatedUser && !this.state.deleted){
         return (
           <div className="Main">
             <div className="Wrapper">
-              <h1>Update User</h1>
+              <h1>Your User Information</h1>
                 <form className="User-form" onSubmit={this.handleSubmit}>
                     <label>name:</label>
                     <input
@@ -153,9 +163,24 @@ class Settings extends Component {
                     />
                     <button>Submit</button>
                 </form>
+                <div>
+                    <button onClick={this.onDelete}>DELETE USER</button>
+                </div>
             </div>
           </div>
-        );
+        );}
+        else if(!this.state.updatedUser && this.state.deleted){
+            return(
+                <div className="goodbye">
+                <div>
+                <img className="sadface" src={'https://i.imgur.com/pTfd8Of.png'} alt='home' />
+                </div>
+                <p>sorry to see you go</p>
+                </div>
+                
+                
+            )
+        }
     }
 }
 
