@@ -18,7 +18,8 @@ userRouter.post('/login', async (req,res, next) => {
         const payload = { email, id }
         const token = jwtSign(payload)
         // return the user object and token
-        return res.json({ user, token })
+        const data = res.json({ user, token })
+        console.log(data)
       })
     } catch(error) {
       return next(error)

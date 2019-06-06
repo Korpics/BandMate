@@ -4,35 +4,31 @@ import { Link } from 'react-router-dom';
 
 
 class Header extends Component {
+    constructor(props){
+        super(props)
+    }
   render() {
     if(this.props.authenticated){
       return(
         <div className="Navbar">
         <ul>
           <Link to='/'>
-            <img src={'https://i.imgur.com/pMvioiT.png'} alt='home' />
+            <img className="authimageClass" src={'https://i.imgur.com/pMvioiT.png'} alt='home' />
           </Link>
-          <Link to='/logout'>
-            <li>Logout</li>
+          <Link to='/settings'>
+            <p>User Settings</p>
           </Link>
+          <p>authenticated</p>
 
         </ul>
       </div>
       )
-    }
+    } else
     return (
       <div className="Navbar">
-        <ul>
         <Link to='/'>
-    <img src={'https://i.imgur.com/pMvioiT.png'} alt='home' />
+    <img className="imageClass" src={'https://i.imgur.com/pMvioiT.png'} alt='home' />
           </Link>
-          <Link to='/signup'>
-            <li>signup</li>
-          </Link>
-          <Link to='/login'>
-            <li>Login</li>
-          </Link>
-        </ul>
       </div>
     );
   }

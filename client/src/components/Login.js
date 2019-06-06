@@ -11,14 +11,14 @@ class Login extends Component {
 
     render() {
         if(this.props.authenticated){
-            console.log('workin') 
+            return <Redirect to='/settings' /> 
         }
         return (
             <div className="Wrapper">
-              <h1>LOG IN</h1>
+              <h1>Login</h1>
               <div className="Wrapper">
 
-                <form className="Volunteer-form" onSubmit={this.handleSubmitForm}>
+                <form className="login-form" onSubmit={this.handleSubmitForm}>
                     <lable>Username:</lable>
                     <input
                         type='text' placeholder='Enter Username'

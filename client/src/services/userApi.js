@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const Base_URL = 'http://localhost:5000/users'
+const Base_URL = 'http://localhost:3000/users'
 
 const api = axios.create({
     baseURL: Base_URL 
@@ -31,7 +31,7 @@ const addUsers = async (data) => {
 
 export const putUsers = async (id, data) => {
     try{
-        const resp = await api.put(`/:(${id})`, data);
+        const resp = await api.put(`/${id}`, data);
         return resp.json
     }
     catch(e){

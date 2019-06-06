@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
 import { login, signup } from './services/authApi';
+import { getAllUsers} from './services/userApi'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Header from './components/Header'
-import { Redirect, Link, Route } from 'react-router-dom'
+import Dashboard from './components/Dashboard'
+import { Redirect, Link, Route, Switch } from 'react-router-dom'
+import Settings from './components/Settings'
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      allUsers: [],
       authenticated: false,
       username: '',
       password: '',
@@ -31,10 +35,14 @@ class App extends Component {
     try {
         const { username, password} = this.state;
         const response = await login({username, password});
-        console.log(response);
-        await this.setState({
-            authenticated: true
+        console.log(response.user);
+        const user = response.user
+       await  this.setState({
+            authenticated: true,
+            user: user
+            
         })
+        console.log(this.state)
     }
     catch (e) {
         console.log(e.message);
@@ -84,12 +92,28 @@ class App extends Component {
     this.setState({authenticated: false})
   };
 
+  componentDidMount=()=>{
+    this.fetchAllUsers()
+    console.log(this.state)
+
+  }
+
+  fetchAllUsers = async () => {
+    const allUsers =  await getAllUsers();
+    await this.setState({allUsers});
+    console.log(this.state)
+
+   }
+
+   truthSet = async () => {
+    await this.setState({signedup: true})
+   }
+
   render() {
-    if(this.state.signedup){
+    if(this.state.signedup && !this.state.authenticated){
    return (
         <div className="App">
-          <p>thanks bud</p>
-          <Header/>
+          <Header authenticated={this.state.authenticated} user={this.state.user}/>
           <Login 
             authenticated={this.state.authenticated} 
             handleLogin={this.handleLogin}
@@ -99,25 +123,20 @@ class App extends Component {
           />
         </div>
           )
-    }
+    } else if (!this.state.signedup && !this.state.authenticated){
     return (
       <div className="App">
-        <Header/>
+        {/* <Switch> */}
+        <Header authenticated={this.state.authenticated}/>
+        <button onClick={this.truthSet}>I already have an account!</button>
+        <Link to='/signup'>
+            <p>Register</p>
+            </Link>
+            <Switch>
         <Route
-          exact path='/login'
-
-          render={() => <Login
-          authenticated={this.state.authenticated} 
-          handleLogin={this.handleLogin}
-          username={this.state.username}
-          password={this.state.password}
-          handleChange={this.handleChange}
-            />} />
-
-        <Route
-          exact path='/signup'
-
-          render={() => <Signup
+        exact path ='/signup'
+        render={() => <Signup
+            user={this.state.user}
             authenticated={this.authenticated}
             handleSignup={this.handleSignup}
             handleLogin={this.handleLogin}
@@ -132,9 +151,52 @@ class App extends Component {
             genre={this.state.genre}
             bio={this.state.bio}
             links={this.state.links}
-            />} />
+        />} />
+        </Switch>
+            
+           {/* <Route
+            exact path='/settings'
+
+            render={() => <Settings
+              authenticated={this.authenticated}
+              handleSignup={this.handleSignup}
+              handleLogin={this.handleLogin}
+              username={this.state.username}
+              password={this.state.password}
+              handleChange={this.handleChange}
+              borrough={this.state.borrough}
+              name={this.state.name}
+              age={this.state.age}
+              instrument={this.state.instrument}
+              influences={this.state.influences}
+              genre={this.state.genre}
+              bio={this.state.bio}
+              links={this.state.links}
+              />} /> 
+            </Switch> */}
         </div>
-      );}
+      );} else if (this.state.signedup && this.state.authenticated){
+        return (
+          <Dashboard
+          user={this.state.user}
+          authenticated={this.authenticated}
+          handleSignup={this.handleSignup}
+          handleLogin={this.handleLogin}
+          username={this.state.username}
+          password={this.state.password}
+          handleChange={this.handleChange}
+          borrough={this.state.borrough}
+          name={this.state.name}
+          age={this.state.age}
+          instrument={this.state.instrument}
+          influences={this.state.influences}
+          genre={this.state.genre}
+          bio={this.state.bio}
+          links={this.state.links}
+        />
+
+        )}
+      }
     }
   
 
