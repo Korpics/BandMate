@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(passport.initialize());
 
-app.use('/auth', userRouter)
+// app.use('/auth', userRouter)
 app.use('/users', userRouter)
 
 app.get('/', async (req, res) => {

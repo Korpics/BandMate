@@ -27,7 +27,7 @@ const User = bandDb.define("users", {
     },
     genre: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     borrough: {
       type: Sequelize.STRING,
@@ -35,15 +35,15 @@ const User = bandDb.define("users", {
     },
     link: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     age: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     influences: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     bio: {
         type: Sequelize.STRING,

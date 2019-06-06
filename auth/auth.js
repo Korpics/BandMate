@@ -36,23 +36,36 @@ passport.use(new JWTStrategy({
 }));
 
 passport.use('signup', new LocalStrategy({
-    usernameField: 'username',
-    passwordField: 'password'
-}, 
-async (username, password, done) => {
-    try {
-        const user = await User.create({username, password});
+  usernameField: 'username',
+  passwordField: 'password',
+  passReqToCallback: true
+}, async (req, username, password, done) => {
+  try {
+    const {body: { name, borrough, bio, instrument, genre, influences, age, link } }= req
+    console.log(name)
 
-        if (!user) {
-            return done(null, false, {message: 'Unable to add user'})
-        }
-        done(null, user, {message: 'Successfully added user'});
+    const user = await User.create({
+      "name": name,
+      "username": username,
+      "password": password,
+      "borrough": borrough,
+      "bio": bio,
+      "instrument": instrument,
+      "genre": genre,
+      "age": age,
+      "influences": influences,
+      "link": link
+    })
+
+    if (!user) {
+      return done(null, false, { message: 'Unable to sign up user'})
     }
-    catch (e) {
-        console.log(e.message);
-        return done(e);
-    }
-}));
+
+    done(null, user, { message: 'User created successfully'})
+  } catch (error) {
+    done(error)
+  }
+}))
 
 passport.use('login', new LocalStrategy({
     usernameField: 'username',
