@@ -73,7 +73,7 @@ class Settings extends Component {
     }
     render() {
         if(this.state.updatedUser){
-            return <Redirect to='/Dashboard' />
+            return <Redirect to='/dashboard' />
         } else if(!this.state.updatedUser && !this.state.deleted){
         return (
           <div className="Main">

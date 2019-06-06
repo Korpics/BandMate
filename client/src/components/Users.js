@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 
-const Match = (props) => {
+class Users extends Component {
+    constructor(props){
+        super(props)
+    }
+
+
     render() {
-       const listing = this.props.allFriends.map((friend, i) => {
+       const listing = this.props.allUsers.map((user, i) => {
            return (
                 <div
                 className="List-item"
                 id={i}>
-                    <h1>{friend.name}</h1>
+                    <h1>{user.name}</h1>
                     <img
-                    src={friend.image}
+                    src={user.image}
                     alt='test'
-                    onClick={this.props.handleSelected}
-                    id={friend.id -1}
+                    // onClick={this.props.handleSelected}
+                    id={user.id -1}
                     />
                 </div>
             )
@@ -25,4 +30,4 @@ const Match = (props) => {
     }
 }
 
-export default Match;
+export default Users;

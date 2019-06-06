@@ -11,7 +11,7 @@ class Login extends Component {
 
     render() {
         if(this.props.authenticated){
-            return <Redirect to='/settings' /> 
+            return <Redirect to='/dashboard' /> 
         }
         return (
             <div className="Wrapper">
@@ -33,7 +33,7 @@ class Login extends Component {
                         onChange={this.props.handleChange}
                         // value={this.props.password}
                     />
-                    <button type='submit' onClick={this.handleSubmitForm}>LOG IN</button>
+                    <button type='submit' onClick={this.handleSubmitForm}>Register</button>
                 </form>
               </div>
             </div>

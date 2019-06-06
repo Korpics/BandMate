@@ -105,7 +105,8 @@ class App extends Component {
 
    }
 
-   truthSet = async () => {
+   truthSet = async (e) => {
+     e.preventDefault();
     await this.setState({signedup: true})
    }
 
@@ -177,7 +178,9 @@ class App extends Component {
         </div>
       );} else if (this.state.signedup && this.state.authenticated){
         return (
-          <Dashboard
+          <Dashboard 
+          fetch={this.fetchAllUsers}
+          allUsers={this.state.allUsers}
           user={this.state.user}
           authenticated={this.authenticated}
           handleSignup={this.handleSignup}

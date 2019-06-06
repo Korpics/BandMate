@@ -18,6 +18,9 @@ class Header extends Component {
           <Link to='/settings'>
             <p>User Settings</p>
           </Link>
+          <Link to='/dashboard'>
+            <p>User Settings</p>
+          </Link>
           <p>authenticated</p>
 
         </ul>
