@@ -86,7 +86,7 @@ class Signup extends Component {
                         onChange={this.props.handleChange}
                         value={this.props.link}
                     />
-                    <button type='submit'>LOG IN</button>
+                    <button type='submit'>Register</button>
                 </form>
               </div>
             </div>

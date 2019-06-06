@@ -33,7 +33,7 @@ class Login extends Component {
                         onChange={this.props.handleChange}
                         // value={this.props.password}
                     />
-                    <button type='submit' onClick={this.handleSubmitForm}>Register</button>
+                    <button type='submit' onClick={this.handleSubmitForm}>Login</button>
                 </form>
               </div>
             </div>
