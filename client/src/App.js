@@ -129,7 +129,7 @@ class App extends Component {
       <div className="App">
         {/* <Switch> */}
         <Header authenticated={this.state.authenticated}/>
-        <button onClick={this.truthSet}>I already have an account!</button>
+        <button className="button" onClick={this.truthSet}>I already have an account!</button>
         <Link to='/signup'>
             <p>Register</p>
             </Link>

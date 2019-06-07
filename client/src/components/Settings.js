@@ -65,7 +65,12 @@ class Settings extends Component {
         const id = this.props.user.id
         await deleteUsers(id)
         await this.setState({deleted: true})
+        alert('you are gone')
 
+    }
+    routeIt = async(e) => {
+        e.preventDefault();
+        return <Redirect to='/' />
     }
 
     componentDidMount = () => {
@@ -176,6 +181,7 @@ class Settings extends Component {
                 <img className="sadface" src={'https://i.imgur.com/pTfd8Of.png'} alt='home' />
                 </div>
                 <p>sorry to see you go</p>
+                <button onClick={this.routeIt}>Goodbye</button>
                 </div>
                 
                 
