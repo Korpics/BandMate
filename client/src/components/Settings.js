@@ -82,7 +82,7 @@ class Settings extends Component {
         } else if(!this.state.updatedUser && !this.state.deleted){
         return (
           <div className="Main">
-            <div className="Wrapper">
+            <div className="field" style={{marginLeft: 45, marginRight: 45}}>
               <h1>Your User Information</h1>
                 <form className="User-form" onSubmit={this.handleSubmit}>
                     <label>name:</label>
@@ -175,10 +175,10 @@ class Settings extends Component {
                         value={this.state.image}
                         onChange={this.handleChange}
                     />
-                    <button>Submit</button>
+                    <button class="button is-warning">Submit</button>
                 </form>
                 <div>
-                    <button onClick={this.onDelete}>DELETE USER</button>
+                <button class="button is-danger" onClick={this.onDelete}>DELETE USER</button>
                 </div>
             </div>
           </div>
@@ -190,7 +190,7 @@ class Settings extends Component {
                 <img className="sadface" src={'https://i.imgur.com/pTfd8Of.png'} alt='home' />
                 </div>
                 <p>sorry to see you go</p>
-                <button onClick={this.routeIt}>Goodbye</button>
+                <button class="button is-primary" onClick={this.routeIt}>Goodbye</button>
                 </div>
                 
                 

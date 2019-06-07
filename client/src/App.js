@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { login, signup } from './services/authApi';
-import { getAllUsers} from './services/userApi'
+import { getAllUsers, Base_URL} from './services/userApi'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Header from './components/Header'

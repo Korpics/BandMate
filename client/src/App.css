@@ -46,7 +46,17 @@ html{
     font:inherit;
     vertical-align:baseline;
 }
-.
+
+.dash-img{
+
+  max-width: 50px;
+
+}
+.img2 {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .goodbye{
   display: flex;
   justify-content: center;

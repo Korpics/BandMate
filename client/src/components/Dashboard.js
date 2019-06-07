@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import Settings from './Settings'
 import Users from './Users'
 import { Link, Switch, Route} from 'react-router-dom';
-import addUsers from '../services/userApi';
+import Base_URL from '../services/userApi';
 
 
 class Dashboard extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount=()=>{
         this.props.fetch()
@@ -16,6 +13,8 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
+            <h2>Hello {this.props.user.name}</h2>
+            <a href={`${Base_URL}`} className="dash-img"><img className="dash-img" src={'https://i.imgur.com/pMvioiT.png'} alt='home' /></a>
             <div className="tabs is-centered">
             <ul>
             <Link to='/settings' className="is-active">
@@ -56,7 +55,7 @@ class Dashboard extends Component {
             allUsers={this.props.allUsers}
             />} />
           </Switch>
-          <div style={{justifyContent: 'center'}}>Hello {this.props.user.name}</div>
+          
           </div>
         );
     }
