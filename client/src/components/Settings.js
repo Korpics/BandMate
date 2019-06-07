@@ -87,6 +87,7 @@ class Settings extends Component {
                 <form className="User-form" onSubmit={this.handleSubmit}>
                     <label>name:</label>
                     <input
+                        className="input is-rounded" 
                         type='input'
                         placeholder='name'
                         id='name'
@@ -96,6 +97,7 @@ class Settings extends Component {
                     />
                     <label>age:</label>
                     <input
+                        className="input is-rounded" 
                         type='input'
                         placeholder='Age'
                         id='age'
@@ -105,6 +107,7 @@ class Settings extends Component {
                     />
                     <label>genre:</label>
                     <input
+                        className="input is-rounded" 
                         type='input'
                         placeholder='genre'
                         id='genre'
@@ -114,6 +117,7 @@ class Settings extends Component {
                     />
                     <label>instrument:</label>
                     <input
+                        className="input is-rounded" 
                         type='input'
                         placeholder='instrument'
                         id='instrument'
@@ -123,6 +127,7 @@ class Settings extends Component {
                     />
                     <label>influences:</label>
                     <input
+                        className="input is-rounded" 
                         type='input'
                         placeholder='influences'
                         id='influences'
@@ -132,6 +137,7 @@ class Settings extends Component {
                     />
                     <label>borrough:</label>
                     <input
+                        className="input is-rounded" 
                         type='input'
                         placeholder='borrough'
                         id='borrough'
@@ -141,6 +147,7 @@ class Settings extends Component {
                     />
                     <label>link:</label>
                     <input
+                        className="input is-rounded" 
                         type='input'
                         placeholder='link'
                         id='link'
@@ -150,6 +157,7 @@ class Settings extends Component {
                     />
                     <label>bio:</label>
                     <input
+                        className="input is-rounded" 
                         type='input'
                         placeholder='bio'
                         id='bio'
@@ -159,6 +167,7 @@ class Settings extends Component {
                     />
                     <label>image:</label>
                     <input
+                        className="input is-rounded" 
                         type='input'
                         placeholder='image'
                         id='image'

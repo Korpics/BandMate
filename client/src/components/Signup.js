@@ -11,13 +11,12 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className="Wrapper">
-              <h1>Sign Up</h1>
-              <div className="Wrapper">
+            <div className="field" style={{marginLeft: 45, marginRight: 45}}>
 
                 <form className="Volunteer-form" onSubmit={this.handleSubmitForm}>
                     <lable>Username:</lable>
                     <input
+                        className="input is-rounded" 
                         type='text' placeholder='Enter Username'
                         name='username'
                         onChange={this.props.handleChange}
@@ -25,6 +24,7 @@ class Signup extends Component {
                     />
                     <lable>Password:</lable>
                     <input
+                        className="input is-rounded" 
                         type='password' placeholder='Enter Password'
                         name='password'
                         onChange={this.props.handleChange}
@@ -32,6 +32,7 @@ class Signup extends Component {
                     />
                      <lable>Borrough:</lable>
                     <input
+                        className="input is-rounded" 
                         type='text' placeholder='Where ya from?'
                         name='borrough'
                         onChange={this.props.handleChange}
@@ -39,6 +40,7 @@ class Signup extends Component {
                     />
                      <lable>Name:</lable>
                     <input
+                        className="input is-rounded" 
                         type='text' placeholder='Enter your first name'
                         name='name'
                         onChange={this.props.handleChange}
@@ -46,6 +48,7 @@ class Signup extends Component {
                     />
                      <lable>Genre:</lable>
                     <input
+                        className="input is-rounded" 
                         type='text' placeholder='please only enter one'
                         name='genre'
                         onChange={this.props.handleChange}
@@ -53,6 +56,7 @@ class Signup extends Component {
                     />
                      <lable>Instrument:</lable>
                     <input
+                        className="input is-rounded" 
                         type='text' placeholder='primary instrument'
                         name='instrument'
                         onChange={this.props.handleChange}
@@ -60,6 +64,7 @@ class Signup extends Component {
                     />
                      <lable>Age:</lable>
                     <input
+                        className="input is-rounded" 
                         type='text' placeholder='Enter Username'
                         name='age'
                         onChange={this.props.handleChange}
@@ -67,6 +72,7 @@ class Signup extends Component {
                     />
                      <lable>Influences:</lable>
                     <input
+                        className="input is-rounded" 
                         type='text' placeholder='Please separate by comma'
                         name='influences'
                         onChange={this.props.handleChange}
@@ -74,6 +80,7 @@ class Signup extends Component {
                     />
                      <lable>Bio:</lable>
                     <input
+                        className="input is-rounded" 
                         type='text' placeholder='Tell us about yourself!'
                         name='bio'
                         onChange={this.props.handleChange}
@@ -81,15 +88,15 @@ class Signup extends Component {
                     />
                      <lable>Links:</lable>
                     <input
+                        className="input is-rounded" 
                         type='text' placeholder='Any links to your music?'
                         name='link'
                         onChange={this.props.handleChange}
                         value={this.props.link}
                     />
-                    <button type='submit'>Register</button>
+                    <button className='button' type='submit' style={{marginTop: 10}}>Register</button>
                 </form>
               </div>
-            </div>
         );
     }
 }

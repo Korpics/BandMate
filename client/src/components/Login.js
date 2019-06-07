@@ -14,31 +14,42 @@ class Login extends Component {
             return <Redirect to='/dashboard' /> 
         }
         return (
-            <div className="Wrapper">
-              <h1>Login</h1>
-              <div className="Wrapper">
+        <div>
+          <div className="field" style={{marginLeft: 45, marginRight: 45}}>
+            <p className="control has-icons-left has-icons-right">
+            <input  className="input is-rounded" 
+                    type='text' 
+                    placeholder='Enter Username'
+                    name='username'
+                    onChange={this.props.handleChange}
+                    value={this.props.username} />
+            <span className="icon is-small is-left">
+                <i className="fas fa-envelope" />
+                </span>
+            <span className="icon is-small is-right">
+                <i className="fas fa-check" />
+                </span>
+            </p>
+          </div>
+          <div className="field" style={{marginLeft: 45, marginRight: 45}}>
+            <p className="control has-icons-left">
+            <input className="input is-rounded" 
+                    type='password' 
+                    placeholder='Enter Password'
+                    name='password'
+                    onChange={this.props.handleChange} />
+            <span className="icon is-small is-left">
+                <i className="fas fa-lock" />
+                </span>
+            </p>
+          </div>
+          <button class="button is-primary" type='submit' onClick={this.handleSubmitForm}>Login</button>
 
-                <form className="login-form" onSubmit={this.handleSubmitForm}>
-                    <lable>Username:</lable>
-                    <input
-                        type='text' placeholder='Enter Username'
-                        name='username'
-                        onChange={this.props.handleChange}
-                        value={this.props.username}
-                    />
-                    <lable>Password:</lable>
-                    <input
-                        type='password' placeholder='Enter Password'
-                        name='password'
-                        onChange={this.props.handleChange}
-                        // value={this.props.password}
-                    />
-                    <button type='submit' onClick={this.handleSubmitForm}>Login</button>
-                </form>
-              </div>
-            </div>
+        </div>
         );
     }
+
+
 }
 
 export default Login;

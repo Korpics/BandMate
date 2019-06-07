@@ -26,7 +26,8 @@ class App extends Component {
       genre: '',
       bio: '',
       link: '',
-      signedup: false
+      signedup: false,
+      signupselect:false
     }
     this.handleLogin = this.handleLogin.bind(this);
     this.handleSignup = this.handleSignup.bind(this)
@@ -105,6 +106,14 @@ class App extends Component {
 
    }
 
+   signupSelect = async(e) => {
+     e.preventDefault()
+     await this.setState({
+        signupselect: true
+     })
+     
+
+   }
    truthSet = async (e) => {
      e.preventDefault();
     await this.setState({signedup: true})
@@ -124,19 +133,11 @@ class App extends Component {
           />
         </div>
           )
-    } else if (!this.state.signedup && !this.state.authenticated){
+    } else if (!this.state.signedup && !this.state.authenticated && this.state.signupselect){
     return (
       <div className="App">
-        {/* <Switch> */}
         <Header authenticated={this.state.authenticated}/>
-        <button className="button" onClick={this.truthSet}>I already have an account!</button>
-        <Link to='/signup'>
-            <p>Register</p>
-            </Link>
-            <Switch>
-        <Route
-        exact path ='/signup'
-        render={() => <Signup
+          <Signup
             user={this.state.user}
             authenticated={this.authenticated}
             handleSignup={this.handleSignup}
@@ -151,32 +152,16 @@ class App extends Component {
             influences={this.state.influences}
             genre={this.state.genre}
             bio={this.state.bio}
-            links={this.state.links}
-        />} />
-        </Switch>
-            
-           {/* <Route
-            exact path='/settings'
-
-            render={() => <Settings
-              authenticated={this.authenticated}
-              handleSignup={this.handleSignup}
-              handleLogin={this.handleLogin}
-              username={this.state.username}
-              password={this.state.password}
-              handleChange={this.handleChange}
-              borrough={this.state.borrough}
-              name={this.state.name}
-              age={this.state.age}
-              instrument={this.state.instrument}
-              influences={this.state.influences}
-              genre={this.state.genre}
-              bio={this.state.bio}
-              links={this.state.links}
-              />} /> 
-            </Switch> */}
+            links={this.state.links}/>
         </div>
-      );} else if (this.state.signedup && this.state.authenticated){
+      );} else if (!this.state.signedup && !this.state.authenticated && !this.state.signupselect){
+    return (
+      <div className="App">
+        <Header authenticated={this.state.authenticated}/>
+        <a className="button" onClick={this.truthSet} >I already have an account!</a>
+        <a className="button" onClick={this.signupSelect} >Register</a>
+        </div>
+    );}   else if (this.state.authenticated){
         return (
           <Dashboard 
           fetch={this.fetchAllUsers}

@@ -15,14 +15,20 @@ class Dashboard extends Component {
     }
     render() {
         return (
-            <div className="dashboard">
-            <div>dashboard</div>
-            <Link to='/settings'>
+            <div>
+            <div className="tabs is-centered">
+            <ul>
+            <Link to='/settings' className="is-active">
             <p>User Settings</p>
             </Link>
-            <Link to ='/users'>
+            <Link to ='/users' className="is-active">
             <p> All Users </p>
             </Link>
+            <Link to='/logout' className="is-active">
+            <p>Log Out</p>
+            </Link>
+            </ul>
+          </div>
             <Switch>
             <Route
             exact path='/settings'
@@ -50,8 +56,8 @@ class Dashboard extends Component {
             allUsers={this.props.allUsers}
             />} />
           </Switch>
+          <div style={{justifyContent: 'center'}}>Hello {this.props.user.name}</div>
           </div>
-            
         );
     }
 }
