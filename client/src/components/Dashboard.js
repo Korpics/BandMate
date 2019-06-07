@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import Settings from './Settings'
 import Users from './Users'
+import Main from './Main'
 import { Link, Switch, Route} from 'react-router-dom';
 import Base_URL from '../services/userApi';
 
 
 class Dashboard extends Component {
 
+
     componentDidMount=()=>{
         this.props.fetch()
     }
     render() {
-        return (
-            <div>
+        return (<div>
             <h2>Hello {this.props.user.name}</h2>
             <a href={`${Base_URL}`} className="dash-img"><img className="dash-img" src={'https://i.imgur.com/pMvioiT.png'} alt='home' /></a>
             <div className="tabs is-centered">
             <ul>
+            <Link to='/' className="is-active">
+            <p>Main</p>
+            </Link>
             <Link to='/settings' className="is-active">
             <p>User Settings</p>
             </Link>
@@ -29,6 +33,9 @@ class Dashboard extends Component {
             </ul>
           </div>
             <Switch>
+            <Route
+            exact path='/'
+            render={() =><Main/>}/> 
             <Route
             exact path='/settings'
             render={() =>  <Settings

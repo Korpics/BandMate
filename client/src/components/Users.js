@@ -40,7 +40,6 @@ class Users extends Component {
     <a href="#" class="card-footer-item"> Flag </a>
   </footer>
 </div>
-
             )
         });
         }
