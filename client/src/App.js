@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { login, signup } from './services/authApi';
 import { getAllUsers, Base_URL} from './services/userApi'
+import { fetchAllPosts } from './services/postApi'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Header from './components/Header'
@@ -16,6 +17,7 @@ class App extends Component {
     super();
     this.state = {
       allUsers: [],
+      allPosts: [],
       authenticated: false,
       username: '',
       password: '',
@@ -112,6 +114,7 @@ class App extends Component {
 
   componentDidMount=()=>{
     this.fetchAllUsers()
+    this.getAllPosts()
     console.log(this.state)
 
   }
@@ -119,6 +122,12 @@ class App extends Component {
   fetchAllUsers = async () => {
     const allUsers =  await getAllUsers();
     await this.setState({allUsers});
+    console.log(this.state)
+
+   }
+   getAllPosts = async () => {
+    const allUPosts =  await fetchAllPosts();
+    await this.setState({allPosts});
     console.log(this.state)
 
    }

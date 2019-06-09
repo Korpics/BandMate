@@ -67,6 +67,26 @@ const User = bandDb.define("users", {
     through: 'friends'
   })
 
+  const Post = bandDb.define("posts", {
+    username:{
+      type: Sequelize.STRING,
+      allowNull: false
+      },
+      title:{ 
+      type: Sequelize.STRING,
+      allowNull: false
+      },
+      body:{
+      type: Sequelize.STRING(5000),
+      allowNull: false
+      }
+      })
+
+
+
+      Post.belongsTo(User);
+      User.hasMany(Post);
+
 
 
 
@@ -83,5 +103,6 @@ const User = bandDb.define("users", {
 
   module.exports = {
     bandDb,
-    User
+    User,
+    Post
   }
