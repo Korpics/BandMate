@@ -1,5 +1,5 @@
 html{
-  background: grey;
+  background: 	#5F9EA0	
 }
 
 .App {
@@ -64,6 +64,9 @@ html{
 }
 .sadface{
   justify-content: space-around;
+}
+.card-content{
+  max-height: 100;
 }
 
 @keyframes App-logo-spin {

@@ -8,6 +8,7 @@ import Header from './components/Header'
 import Dashboard from './components/Dashboard'
 import { Redirect, Link, Route, Switch } from 'react-router-dom'
 import Settings from './components/Settings'
+import Footer from './components/Footer'
 
 
 class App extends Component {
@@ -40,7 +41,8 @@ class App extends Component {
         const user = response.user
        await  this.setState({
             authenticated: true,
-            user: user
+            user: user,
+            signedup: true
             
         })
         console.log(this.state)
@@ -89,8 +91,12 @@ class App extends Component {
   }
 
 
-  handleLogOut = () => {
-    this.setState({authenticated: false})
+  handleLogOut = async(e) => {
+    e.preventDefault();
+    await this.setState({
+      authenticated: false,
+      signedup: false
+  })
   };
 
   componentDidMount=()=>{
@@ -155,13 +161,25 @@ class App extends Component {
             links={this.state.links}/>
         </div>
       );} else if (!this.state.signedup && !this.state.authenticated && !this.state.signupselect){
-    return (
-      <div className="App">
+    return (<div className="App">
+      <div className="App" style={{display: "flex", alignContent:"center", flexDirection: "column"}}>
         <Header authenticated={this.state.authenticated}/>
-        <a className="button" onClick={this.truthSet} >I already have an account!</a>
-        <a className="button" onClick={this.signupSelect} >Register</a>
+        <div className="field is-grouped" style={{justifyContent: "center", marginTop:30}}>
+        <a className="button is-rounded " onClick={this.truthSet}>Login</a>
+        <a className="button is-rounded " onClick={this.signupSelect} >Register</a>
+        </div>        
         </div>
-    );}   else if (this.state.authenticated){
+        <div style={{display: "flex", flexDirection: "column"}}>
+        <footer className="footer" style={{background:"rgba(240, 161, 242, 0.0)", justifyContent: "flex-end"}}>
+        <div className="content has-text-centered" style={{}}>
+          <p>
+            <strong>BandMate</strong>.  Currently work-in-progress
+          </p>
+        </div>
+      </footer>
+      </div>
+      </div>
+    );}   else if (this.state.authenticated && this.state.signedup){
         return (
           <Dashboard 
           fetch={this.fetchAllUsers}
@@ -170,6 +188,7 @@ class App extends Component {
           authenticated={this.authenticated}
           handleSignup={this.handleSignup}
           handleLogin={this.handleLogin}
+          handleLogOut={this.handleLogOut}
           username={this.state.username}
           password={this.state.password}
           handleChange={this.handleChange}

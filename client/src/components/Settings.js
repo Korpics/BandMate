@@ -135,7 +135,7 @@ class Settings extends Component {
                         value={this.state.influences}
                         onChange={this.handleChange}
                     />
-                    <label>borrough:</label>
+                    <label>borough:</label>
                     <input
                         className="input is-rounded" 
                         type='input'
@@ -175,7 +175,7 @@ class Settings extends Component {
                         value={this.state.image}
                         onChange={this.handleChange}
                     />
-                    <button class="button is-warning">Submit</button>
+                    <button class="button is-rounded is-info">Update</button>
                 </form>
                 <div>
                 <button class="button is-danger" onClick={this.onDelete}>DELETE USER</button>
@@ -185,15 +185,18 @@ class Settings extends Component {
         );}
         else if(!this.state.updatedUser && this.state.deleted){
             return(
-                <div className="goodbye">
-                <div>
-                <img className="sadface" src={'https://i.imgur.com/pTfd8Of.png'} alt='home' />
-                </div>
+
+
+
+
+
+                
+                <div style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
+                <figure className="image is-128x128">
+                <img src="https://i.imgur.com/pTfd8Of.png" />
                 <p>sorry to see you go</p>
-                <button class="button is-primary" onClick={this.routeIt}>Goodbye</button>
+                </figure>
                 </div>
-                
-                
             )
         }
     }

@@ -3,7 +3,7 @@ import Settings from './Settings'
 import Users from './Users'
 import Main from './Main'
 import { Link, Switch, Route} from 'react-router-dom';
-import Base_URL from '../services/userApi';
+import Home_URL from '../services/userApi';
 
 
 class Dashboard extends Component {
@@ -14,8 +14,8 @@ class Dashboard extends Component {
     }
     render() {
         return (<div>
-            <h2>Hello {this.props.user.name}</h2>
-            <a href={`${Base_URL}`} className="dash-img"><img className="dash-img" src={'https://i.imgur.com/pMvioiT.png'} alt='home' /></a>
+            <h1>Hello {this.props.user.name}</h1>
+            <img className="dash-img" src={'https://i.imgur.com/pMvioiT.png'} alt='home' />
             <div className="tabs is-centered">
             <ul>
             <Link to='/' className="is-active">
@@ -27,7 +27,7 @@ class Dashboard extends Component {
             <Link to ='/users' className="is-active">
             <p> All Users </p>
             </Link>
-            <Link to='/logout' className="is-active">
+            <Link to='/logout' className="is-active" onClick={this.props.handleLogOut}>
             <p>Log Out</p>
             </Link>
             </ul>

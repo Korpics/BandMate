@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const Base_URL = 'http://localhost:3000/users'
+export const Home_URL = 'http://localhost:3000'
 
 const api = axios.create({
     baseURL: Base_URL 

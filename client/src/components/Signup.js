@@ -11,7 +11,7 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className="field" style={{marginLeft: 45, marginRight: 45}}>
+            <div className="field" style={{marginLeft: 400, marginRight: 400}}>
 
                 <form className="Volunteer-form" onSubmit={this.handleSubmitForm}>
                     <lable>Username:</lable>
@@ -30,7 +30,7 @@ class Signup extends Component {
                         onChange={this.props.handleChange}
                         // value={this.props.password}
                     />
-                     <lable>Borrough:</lable>
+                     <lable>Borough:</lable>
                     <input
                         className="input is-rounded" 
                         type='text' placeholder='Where ya from?'
@@ -46,14 +46,6 @@ class Signup extends Component {
                         onChange={this.props.handleChange}
                         value={this.props.name}
                     />
-                     <lable>Genre:</lable>
-                    <input
-                        className="input is-rounded" 
-                        type='text' placeholder='please only enter one'
-                        name='genre'
-                        onChange={this.props.handleChange}
-                        value={this.props.genre}
-                    />
                      <lable>Instrument:</lable>
                     <input
                         className="input is-rounded" 
@@ -61,14 +53,6 @@ class Signup extends Component {
                         name='instrument'
                         onChange={this.props.handleChange}
                         value={this.props.instrument}
-                    />
-                     <lable>Age:</lable>
-                    <input
-                        className="input is-rounded" 
-                        type='text' placeholder='Enter Username'
-                        name='age'
-                        onChange={this.props.handleChange}
-                        value={this.props.age}
                     />
                      <lable>Influences:</lable>
                     <input
@@ -78,23 +62,7 @@ class Signup extends Component {
                         onChange={this.props.handleChange}
                         value={this.props.influences}
                     />
-                     <lable>Bio:</lable>
-                    <input
-                        className="input is-rounded" 
-                        type='text' placeholder='Tell us about yourself!'
-                        name='bio'
-                        onChange={this.props.handleChange}
-                        value={this.props.bio}
-                    />
-                     <lable>Links:</lable>
-                    <input
-                        className="input is-rounded" 
-                        type='text' placeholder='Any links to your music?'
-                        name='link'
-                        onChange={this.props.handleChange}
-                        value={this.props.link}
-                    />
-                    <button className='button' type='submit' style={{marginTop: 10}}>Register</button>
+                    <button className="button is-rounded" type='submit' style={{marginTop: 30}}>Register</button>
                 </form>
               </div>
         );
