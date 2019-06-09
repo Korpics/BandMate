@@ -14,28 +14,28 @@ class Dashboard extends Component {
     }
     render() {
         return (<div>
-            <h1>Hello {this.props.user.name}</h1>
-            <img className="dash-img" src={'https://i.imgur.com/pMvioiT.png'} alt='home' />
+            <img className="dash-img" src={'https://i.imgur.com/pMvioiT.png'} style={{marginLeft: 20, marginTop: 20}}alt='home' />
+            <strong style={{color:"white", marginLeft: 5}}>Hello {this.props.user.name}! </strong>
             <div className="tabs is-centered">
             <ul>
             <Link to='/' className="is-active">
-            <p>Main</p>
+            <strong style={{color:"white"}}>Main</strong>
             </Link>
             <Link to='/settings' className="is-active">
-            <p>User Settings</p>
+            <strong style={{color:"white"}}>User Settings</strong>
             </Link>
             <Link to ='/users' className="is-active">
-            <p> All Users </p>
+            <strong style={{color:"white"}}> All Users </strong>
             </Link>
             <Link to='/logout' className="is-active" onClick={this.props.handleLogOut}>
-            <p>Log Out</p>
+            <strong style={{color:"white"}}>Log Out</strong>
             </Link>
             </ul>
           </div>
             <Switch>
             <Route
             exact path='/'
-            render={() =><Main/>}/> 
+            render={() =><Main user={this.props.user}/>}/> 
             <Route
             exact path='/settings'
             render={() =>  <Settings
@@ -44,6 +44,7 @@ class Dashboard extends Component {
             authenticated={this.props.authenticated}
             handleSignup={this.props.handleSignup}
             handleLogin={this.props.handleLogin}
+            handleLogout={this.props.handleLogOut}
             username={this.props.username}
             password={this.props.password}
             handleChange={this.props.handleChange}

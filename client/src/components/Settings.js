@@ -56,6 +56,7 @@ class Settings extends Component {
         let id = Number(this.props.user.id)
         await putUsers(id, newUser);
         await this.setState({updatedUser: true});
+        await this.props.fetch()
 
 
     }
@@ -66,10 +67,10 @@ class Settings extends Component {
         await deleteUsers(id)
         await this.setState({deleted: true})
         alert('you are gone')
+        await this.props.handleLogout(e)
 
     }
     routeIt = async(e) => {
-        e.preventDefault();
         return <Redirect to='/' />
     }
 
@@ -78,14 +79,13 @@ class Settings extends Component {
     }
     render() {
         if(this.state.updatedUser){
-            return <Redirect to='/dashboard' />
+            return <Redirect to='/' />
         } else if(!this.state.updatedUser && !this.state.deleted){
         return (
           <div className="Main">
-            <div className="field" style={{marginLeft: 45, marginRight: 45}}>
-              <h1>Your User Information</h1>
+            <div className="field" style={{marginLeft: 400, marginRight: 400}}>
                 <form className="User-form" onSubmit={this.handleSubmit}>
-                    <label>name:</label>
+                    <label style={{color:"white", marginTop: 20}}>name</label>
                     <input
                         className="input is-rounded" 
                         type='input'
@@ -95,7 +95,7 @@ class Settings extends Component {
                         value={this.state.name}
                         onChange={this.handleChange}
                     />
-                    <label>age:</label>
+                    <label style={{color:"white", marginTop: 20}}>age</label>
                     <input
                         className="input is-rounded" 
                         type='input'
@@ -105,7 +105,7 @@ class Settings extends Component {
                         value={this.state.age}
                         onChange={this.handleChange}
                     />
-                    <label>genre:</label>
+                    <label style={{color:"white", marginTop: 20}}>genre</label>
                     <input
                         className="input is-rounded" 
                         type='input'
@@ -115,7 +115,7 @@ class Settings extends Component {
                         value={this.state.genre}
                         onChange={this.handleChange}
                     />
-                    <label>instrument:</label>
+                    <label style={{color:"white", marginTop: 20}}>instrument</label>
                     <input
                         className="input is-rounded" 
                         type='input'
@@ -125,7 +125,7 @@ class Settings extends Component {
                         value={this.state.instrument}
                         onChange={this.handleChange}
                     />
-                    <label>influences:</label>
+                    <label style={{color:"white", marginTop: 20}}>influences</label>
                     <input
                         className="input is-rounded" 
                         type='input'
@@ -135,7 +135,7 @@ class Settings extends Component {
                         value={this.state.influences}
                         onChange={this.handleChange}
                     />
-                    <label>borough:</label>
+                    <label style={{color:"white", marginTop: 20}}>borough</label>
                     <input
                         className="input is-rounded" 
                         type='input'
@@ -145,7 +145,7 @@ class Settings extends Component {
                         value={this.state.borrough}
                         onChange={this.handleChange}
                     />
-                    <label>link:</label>
+                    <label style={{color:"white", marginTop: 20}}>link</label>
                     <input
                         className="input is-rounded" 
                         type='input'
@@ -155,7 +155,7 @@ class Settings extends Component {
                         value={this.state.link}
                         onChange={this.handleChange}
                     />
-                    <label>bio:</label>
+                    <label style={{color:"white", marginTop: 20}}>bio</label>
                     <input
                         className="input is-rounded" 
                         type='input'
@@ -165,7 +165,7 @@ class Settings extends Component {
                         value={this.state.bio}
                         onChange={this.handleChange}
                     />
-                    <label>image:</label>
+                    <label style={{color:"white", marginTop: 20}}>image</label>
                     <input
                         className="input is-rounded" 
                         type='input'
@@ -175,10 +175,10 @@ class Settings extends Component {
                         value={this.state.image}
                         onChange={this.handleChange}
                     />
-                    <button class="button is-rounded is-info">Update</button>
+                    <button class="button is-rounded is-info" style={{ marginTop: 20}} onClick={this.handleSubmit}>Update</button>
                 </form>
                 <div>
-                <button class="button is-danger" onClick={this.onDelete}>DELETE USER</button>
+                <button class="button is-danger" onClick={this.onDelete} style={{ marginTop: 20}}>DELETE USER</button>
                 </div>
             </div>
           </div>

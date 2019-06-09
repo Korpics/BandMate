@@ -13,8 +13,8 @@ class Signup extends Component {
         return (
             <div className="field" style={{marginLeft: 400, marginRight: 400}}>
 
-                <form className="Volunteer-form" onSubmit={this.handleSubmitForm}>
-                    <lable>Username:</lable>
+                <form onSubmit={this.handleSubmitForm}>
+                    <lable style={{color:"white", marginTop: 20}}>Username</lable>
                     <input
                         className="input is-rounded" 
                         type='text' placeholder='Enter Username'
@@ -22,7 +22,7 @@ class Signup extends Component {
                         onChange={this.props.handleChange}
                         value={this.props.username}
                     />
-                    <lable>Password:</lable>
+                    <lable style={{color:"white", marginTop: 20}}>Password</lable>
                     <input
                         className="input is-rounded" 
                         type='password' placeholder='Enter Password'
@@ -30,7 +30,7 @@ class Signup extends Component {
                         onChange={this.props.handleChange}
                         // value={this.props.password}
                     />
-                     <lable>Borough:</lable>
+                     <lable style={{color:"white", marginTop: 20}}>Borough</lable>
                     <input
                         className="input is-rounded" 
                         type='text' placeholder='Where ya from?'
@@ -38,7 +38,7 @@ class Signup extends Component {
                         onChange={this.props.handleChange}
                         value={this.props.borrough}
                     />
-                     <lable>Name:</lable>
+                     <lable style={{color:"white", marginTop: 20}}>Name</lable>
                     <input
                         className="input is-rounded" 
                         type='text' placeholder='Enter your first name'
@@ -46,7 +46,7 @@ class Signup extends Component {
                         onChange={this.props.handleChange}
                         value={this.props.name}
                     />
-                     <lable>Instrument:</lable>
+                     <lable style={{color:"white", marginTop: 20}}>Instrument</lable>
                     <input
                         className="input is-rounded" 
                         type='text' placeholder='primary instrument'
@@ -54,7 +54,7 @@ class Signup extends Component {
                         onChange={this.props.handleChange}
                         value={this.props.instrument}
                     />
-                     <lable>Influences:</lable>
+                     <lable style={{color:"white", marginTop: 20}}>Influences</lable>
                     <input
                         className="input is-rounded" 
                         type='text' placeholder='Please separate by comma'

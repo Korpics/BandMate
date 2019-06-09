@@ -95,7 +95,18 @@ class App extends Component {
     e.preventDefault();
     await this.setState({
       authenticated: false,
-      signedup: false
+      username: '',
+      password: '',
+      name: '',
+      age: '',
+      borrough: '',
+      influences: '',
+      instrument: '',
+      genre: '',
+      bio: '',
+      link: '',
+      signedup: false,
+      signupselect:false
   })
   };
 
@@ -165,15 +176,15 @@ class App extends Component {
       <div className="App" style={{display: "flex", alignContent:"center", flexDirection: "column"}}>
         <Header authenticated={this.state.authenticated}/>
         <div className="field is-grouped" style={{justifyContent: "center", marginTop:30}}>
-        <a className="button is-rounded " onClick={this.truthSet}>Login</a>
-        <a className="button is-rounded " onClick={this.signupSelect} >Register</a>
+        <a className="button is-rounded is-light " onClick={this.truthSet}>Login</a>
+        <a className="button is-rounded is-light " onClick={this.signupSelect} >Register</a>
         </div>        
         </div>
         <div style={{display: "flex", flexDirection: "column"}}>
         <footer className="footer" style={{background:"rgba(240, 161, 242, 0.0)", justifyContent: "flex-end"}}>
-        <div className="content has-text-centered" style={{}}>
-          <p>
-            <strong>BandMate</strong>.  Currently work-in-progress
+        <div className="content has-text-centered" >
+          <p style={{color:"white"}}>
+            <strong style={{color:"white"}}>BandMate</strong>.  Currently work-in-progress
           </p>
         </div>
       </footer>

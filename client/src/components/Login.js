@@ -15,7 +15,7 @@ class Login extends Component {
         }
         return (
         <div>
-          <div className="field" style={{marginLeft: 45, marginRight: 45}}>
+          <div className="field" style={{marginLeft: 400, marginRight: 400}}>
             <p className="control has-icons-left has-icons-right">
             <input  className="input is-rounded" 
                     type='text' 
@@ -31,7 +31,7 @@ class Login extends Component {
                 </span>
             </p>
           </div>
-          <div className="field" style={{marginLeft: 45, marginRight: 45}}>
+          <div className="field" style={{marginLeft: 400, marginRight: 400}}>
             <p className="control has-icons-left">
             <input className="input is-rounded" 
                     type='password' 
@@ -43,7 +43,7 @@ class Login extends Component {
                 </span>
             </p>
           </div>
-          <button class="button is-primary" type='submit' onClick={this.handleSubmitForm}>Login</button>
+          <button class="button is-rounded is-light" type='submit' onClick={this.handleSubmitForm}>Login</button>
 
         </div>
         );
