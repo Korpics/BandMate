@@ -189,8 +189,8 @@ class App extends Component {
       <div className="App" style={{display: "flex", alignContent:"center", flexDirection: "column"}}>
         <Header authenticated={this.state.authenticated}/>
         <div className="field is-grouped" style={{justifyContent: "center", marginTop:30}}>
-        <a className="button is-rounded is-light " onClick={this.truthSet}>Login</a>
-        <a className="button is-rounded is-light " onClick={this.signupSelect} >Register</a>
+        <a className="button is-rounded is-light " onClick={this.truthSet} style={{marginRight:10}}>Login</a>
+        <a className="button is-rounded is-light " onClick={this.signupSelect} style={{marginLeft:10}} >Register</a>
         </div>        
         </div>
         <div style={{display: "flex", flexDirection: "column"}}>
