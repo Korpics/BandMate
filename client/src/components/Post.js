@@ -51,8 +51,9 @@ if(this.state.updatedPost){
 return (
   <div className="Main">
     <div className="field" style={{marginLeft: 400, marginRight: 400}}>
+    <div style={{color:"white", marginTop: 15}}></div>
         <form className="User-form" onSubmit={this.handleSubmit}>
-            <label style={{color:"white", marginTop: 20}}>Looking For..</label>
+            <label style={{color:"white", marginBottom: 20}}>Looking For..</label>
             <input
                 className="input is-rounded" 
                 type='input'
@@ -62,6 +63,7 @@ return (
                 value={this.state.seeking}
                 onChange={this.handleChange}
             />
+            <div style={{color:"white", marginTop: 15}}></div>
             <label style={{color:"white", marginTop: 20}}>genre</label>
             <input
                 className="input is-rounded" 
@@ -72,6 +74,7 @@ return (
                 value={this.state.genre}
                 onChange={this.handleChange}
             />
+            <div style={{color:"white", marginTop: 15}}></div>
             <label style={{color:"white", marginTop: 20}}>title</label>
             <input
                 className="input is-rounded" 
@@ -82,6 +85,7 @@ return (
                 value={this.state.title}
                 onChange={this.handleChange}
             />
+            <div style={{color:"white", marginTop: 15}}></div>
             <label style={{color:"white", marginTop: 20}}>body</label>
             <input
                 className="input is-rounded" 
@@ -92,6 +96,7 @@ return (
                 value={this.state.body}
                 onChange={this.handleChange}
             />
+            <div style={{color:"white", marginTop: 15}}></div>
             <button class="button is-rounded is-info" style={{ marginTop: 20}} onClick={this.handleSubmit}>Post!</button>
         </form>
     </div>

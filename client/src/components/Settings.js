@@ -85,7 +85,7 @@ class Settings extends Component {
         return (
           <div className="Main">
             <div className="field" style={{marginLeft: 400, marginRight: 400}}>
-                <form className="User-form" onSubmit={this.handleSubmit}>
+                <form className="User-form" onSubmit={this.handleSubmit} style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
                     <label style={{color:"white", marginTop: 20}}>name</label>
                     <input
                         className="input is-rounded" 
@@ -176,10 +176,10 @@ class Settings extends Component {
                         value={this.state.image}
                         onChange={this.handleChange}
                     />
-                    <button class="button is-rounded is-info" style={{ marginTop: 20}} onClick={this.handleSubmit}>Update</button>
+                    <button class="button is-rounded is-info" style={{ marginTop: 20, maxWidth:80, justifyContent: "center" }} onClick={this.handleSubmit}>Update</button>
                 </form>
                 <div>
-                <button class="button is-danger" onClick={this.onDelete} style={{ marginTop: 20}}>DELETE USER</button>
+                <button class="button is-danger" onClick={this.onDelete} style={{ marginTop: 20, justifyContent: "center" }}>DELETE USER</button>
                 </div>
             </div>
           </div>
