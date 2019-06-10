@@ -199,12 +199,17 @@ Code Snippet
    truthSet = async (e) => {
      e.preventDefault();
     await this.setState({signedup: true})
-   }```
+   }        
+   
+   ```
    
    
 
 Change Log
-TBD This will be full though I am sure.
+Rendering individual User cards and adding them as 'interests' or 'friends' was not within my scope for the week and I had to re-adjust accordingly.
+This will be a POST MVP addition.
+Have applied Ads to supplement.
+
 
 Issues and Resolutions
-TBD This will be full as well.
+I need to input the ability to check if usernames alrady exist and other user error handlers.
