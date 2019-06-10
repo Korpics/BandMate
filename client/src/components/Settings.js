@@ -68,6 +68,7 @@ class Settings extends Component {
         await this.setState({deleted: true})
         alert('you are gone')
         await this.props.handleLogout(e)
+        return <Redirect to='/' />
 
     }
     routeIt = async(e) => {
@@ -190,7 +191,7 @@ class Settings extends Component {
 
 
 
-                
+             
                 <div style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
                 <figure className="image is-128x128">
                 <img src="https://i.imgur.com/pTfd8Of.png" />

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Settings from './Settings'
 import Users from './Users'
+import Ads from './Ads'
+import Post from './Post'
 import Main from './Main'
 import { Link, Switch, Route} from 'react-router-dom';
 import Home_URL from '../services/userApi';
@@ -26,6 +28,12 @@ class Dashboard extends Component {
             </Link>
             <Link to ='/users' className="is-active">
             <strong style={{color:"white"}}> All Users </strong>
+            </Link>
+            <Link to ='/ads' className="is-active">
+            <strong style={{color:"white"}}> All Ads </strong>
+            </Link>
+            <Link to ='/create' className="is-active">
+            <strong style={{color:"white"}}> Post </strong>
             </Link>
             <Link to='/logout' className="is-active" onClick={this.props.handleLogOut}>
             <strong style={{color:"white"}}>Log Out</strong>
@@ -62,6 +70,52 @@ class Dashboard extends Component {
             render={() => <Users
             allUsers={this.props.allUsers}
             />} />
+            <Route
+            exact path='/ads'
+            render={() => <Ads 
+            user={this.props.user}
+            posts={this.props.allPosts}
+            getAllPosts={this.props.getAllPosts}
+            fetch={this.props.fetch}
+            authenticated={this.props.authenticated}
+            handleSignup={this.props.handleSignup}
+            handleLogin={this.props.handleLogin}
+            handleLogout={this.props.handleLogOut}
+            username={this.props.username}
+            password={this.props.password}
+            handleChange={this.props.handleChange}
+            borrough={this.props.borrough}
+            name={this.props.name}
+            age={this.props.age}
+            instrument={this.props.instrument}
+            influences={this.props.influences}
+            genre={this.props.genre}
+            bio={this.props.bio}
+            links={this.props.links}
+            />}/> 
+            <Route
+            exact path='/create'
+            render={() => <Post 
+            user={this.props.user}
+            posts={this.props.allPosts}
+            fetch={this.props.fetch}
+            getAllPosts={this.props.getAllPosts}
+            authenticated={this.props.authenticated}
+            handleSignup={this.props.handleSignup}
+            handleLogin={this.props.handleLogin}
+            handleLogout={this.props.handleLogOut}
+            username={this.props.username}
+            password={this.props.password}
+            handleChange={this.props.handleChange}
+            borrough={this.props.borrough}
+            name={this.props.name}
+            age={this.props.age}
+            instrument={this.props.instrument}
+            influences={this.props.influences}
+            genre={this.props.genre}
+            bio={this.props.bio}
+            links={this.props.links}
+            />}/> 
           </Switch>
           
           </div>
