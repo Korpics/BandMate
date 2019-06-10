@@ -49,6 +49,7 @@ ERD
 https://imgur.com/a/vFucqDA (Still figuring this out)
 
 UI Components
+```
 
 └── src
     ├── App.css
@@ -73,7 +74,7 @@ UI Components
         ├── authApi.js
         ├── postApi.js
         └── userApi.js
-
+```
 
 
 
