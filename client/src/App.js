@@ -197,7 +197,7 @@ class App extends Component {
         <footer className="footer" style={{background:"rgba(240, 161, 242, 0.0)", justifyContent: "flex-end"}}>
         <div className="content has-text-centered" >
           <p style={{color:"white"}}>
-            <strong style={{color:"white"}}>BandMate</strong>.  Currently work-in-progress
+            <strong style={{color:"white"}}>BandMate</strong>.  Currently a work-in-progress
           </p>
         </div>
       </footer>
