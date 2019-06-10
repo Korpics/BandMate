@@ -12,7 +12,7 @@ class Users extends Component {
 <div className="card" style={{marginLeft: 80, marginRight: 80, marginBottom: 100, marginTop: 100}}>
   <header className="card-header">
     <p className="card-header-title">
-    {user.name}
+    {user.username}
     </p>
     <a href="#" className="card-header-icon" aria-label="more options">
       <span className="icon">
