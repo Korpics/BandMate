@@ -24,3 +24,13 @@ export const createPost = async (data) => {
         console.log(error)
     }
 }
+
+export const deletePost = async (id) => {
+    try{
+        const resp = await api.delete(`/${id}`);
+        return console.log(resp, 'deleted');
+    }
+    catch (e) {
+        console.log(e.message)
+    }
+}

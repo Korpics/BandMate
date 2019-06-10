@@ -126,7 +126,7 @@ class App extends Component {
 
    }
    getAllPosts = async () => {
-    const allUPosts =  await fetchAllPosts();
+    const allPosts =  await fetchAllPosts();
     await this.setState({allPosts});
     console.log(this.state)
 
@@ -151,6 +151,8 @@ class App extends Component {
         <div className="App">
           <Header authenticated={this.state.authenticated} user={this.state.user}/>
           <Login 
+            allUsers={this.state.allUsers}
+            allPosts={this.state.allPosts}
             authenticated={this.state.authenticated} 
             handleLogin={this.handleLogin}
             username={this.state.username}
@@ -165,6 +167,8 @@ class App extends Component {
         <Header authenticated={this.state.authenticated}/>
           <Signup
             user={this.state.user}
+            allUsers={this.state.allUsers}
+            allPosts={this.state.allPosts}
             authenticated={this.authenticated}
             handleSignup={this.handleSignup}
             handleLogin={this.handleLogin}
@@ -203,7 +207,9 @@ class App extends Component {
         return (
           <Dashboard 
           fetch={this.fetchAllUsers}
+          getAllPosts={this.getAllPosts}
           allUsers={this.state.allUsers}
+          allPosts={this.state.allPosts}
           user={this.state.user}
           authenticated={this.authenticated}
           handleSignup={this.handleSignup}

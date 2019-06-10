@@ -68,6 +68,7 @@ class Settings extends Component {
         await this.setState({deleted: true})
         alert('you are gone')
         await this.props.handleLogout(e)
+        return <Redirect to='/' />
 
     }
     routeIt = async(e) => {

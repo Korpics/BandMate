@@ -3,7 +3,7 @@ const { Post } = require('../models');
 const postRouter = express.Router();
 
 
-postRouter.get('/posts', async (request, response) => {
+postRouter.get('/', async (request, response) => {
   try {
     const allPosts = await Post.findAll()
     response.json(allPosts)
@@ -12,12 +12,12 @@ postRouter.get('/posts', async (request, response) => {
   }
 });
 
-postRouter.get('/posts/:id', async (request, response) => {
+postRouter.get('/:id', async (request, response) => {
     try {
       const id = request.params.id;
       const post = await Post.findByPk(id)
   
-      if (!post) throw Error('Post not found! EEEEEEKKK');
+      if (!post) throw Error('Post not found! ');
   
       response.json({
         post
@@ -27,7 +27,7 @@ postRouter.get('/posts/:id', async (request, response) => {
     }
 });
 
-postRouter.post('/posts', async (request, response) => {
+postRouter.post('/', async (request, response) => {
     try {
       const post = await Post.create(request.body)
       response.json({
@@ -38,7 +38,7 @@ postRouter.post('/posts', async (request, response) => {
     }
 });
 
-postRouter.delete('/posts/:id', async (request, response) => {
+postRouter.delete('/:id', async (request, response) => {
     try {
       const deletion = await Post.findByPk(request.params.id);
       await deletion.destroy();
@@ -48,7 +48,7 @@ postRouter.delete('/posts/:id', async (request, response) => {
     }
 });
 
-postRouter.put('/posts/:id', async (request, response) => {
+postRouter.put('/:id', async (request, response) => {
     try {
       const id = request.params.id;
       const post = await Post.findByPk(id);

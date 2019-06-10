@@ -79,6 +79,14 @@ const User = bandDb.define("users", {
       body:{
       type: Sequelize.STRING(5000),
       allowNull: false
+      },
+      seeking:{
+      type: Sequelize.STRING,
+      allowNull: false
+      },
+      genre:{
+      type: Sequelize.STRING,
+      allowNull: false
       }
       })
 
