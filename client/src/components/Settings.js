@@ -191,7 +191,7 @@ class Settings extends Component {
 
 
 
-                
+             
                 <div style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
                 <figure className="image is-128x128">
                 <img src="https://i.imgur.com/pTfd8Of.png" />
