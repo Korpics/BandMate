@@ -15,7 +15,7 @@ class Login extends Component {
         }
         return (
         <div>
-          <div className="field" style={{marginLeft: 400, marginRight: 400}}>
+          <div className="field" style={{marginLeft: 600, marginTop: 30, marginRight: 600, marginBottom: 30}}>
             <p className="control has-icons-left has-icons-right">
             <input  className="input is-rounded" 
                     type='text' 
@@ -31,7 +31,7 @@ class Login extends Component {
                 </span>
             </p>
           </div>
-          <div className="field" style={{marginLeft: 400, marginRight: 400}}>
+          <div className="field" style={{marginLeft: 600, marginTop: 30, marginRight: 600, marginBottom: 30}}>
             <p className="control has-icons-left">
             <input className="input is-rounded" 
                     type='password' 

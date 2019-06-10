@@ -11,57 +11,65 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className="field" style={{marginLeft: 400, marginRight: 400}}>
+            <div className="field" style={{marginLeft: 500, marginRight: 500, marginTop: 30}}>
 
                 <form onSubmit={this.handleSubmitForm}>
-                    <lable style={{color:"white", marginTop: 20}}>Username</lable>
+                    <lable style={{marginBottom: 15, color: "white"}}>Username</lable>
                     <input
+                    
                         className="input is-rounded" 
                         type='text' placeholder='Enter Username'
                         name='username'
                         onChange={this.props.handleChange}
                         value={this.props.username}
-                    />
-                    <lable style={{color:"white", marginTop: 20}}>Password</lable>
+                  
+                  /><div style={{color:"white", marginTop: 15}}></div>
+                    <lable style={{marginBottom: 15, color: "white"}}>Password</lable>
                     <input
+                        
                         className="input is-rounded" 
                         type='password' placeholder='Enter Password'
                         name='password'
                         onChange={this.props.handleChange}
                         // value={this.props.password}
-                    />
-                     <lable style={{color:"white", marginTop: 20}}>Borough</lable>
+                  
+                  /><div style={{color:"white", marginTop: 15}}></div>
+                     <lable style={{marginBottom: 15, color: "white"}}>Borough</lable>
                     <input
                         className="input is-rounded" 
                         type='text' placeholder='Where ya from?'
                         name='borrough'
                         onChange={this.props.handleChange}
                         value={this.props.borrough}
-                    />
-                     <lable style={{color:"white", marginTop: 20}}>Name</lable>
+                  
+                  /><div style={{color:"white", marginTop: 15}}></div>
+                     <lable style={{marginBottom: 15, color: "white"}}>Name</lable>
                     <input
                         className="input is-rounded" 
                         type='text' placeholder='Enter your first name'
                         name='name'
                         onChange={this.props.handleChange}
                         value={this.props.name}
-                    />
-                     <lable style={{color:"white", marginTop: 20}}>Instrument</lable>
+                  
+                  /><div style={{color:"white", marginTop: 15}}></div>
+                     <lable style={{marginBottom: 15, color: "white"}}>Instrument</lable>
                     <input
                         className="input is-rounded" 
                         type='text' placeholder='primary instrument'
                         name='instrument'
                         onChange={this.props.handleChange}
                         value={this.props.instrument}
-                    />
-                     <lable style={{color:"white", marginTop: 20}}>Influences</lable>
+                  
+                  /><div style={{color:"white", marginTop: 15}}></div>
+                     <lable style={{color:"white", marginBottom: 15}}>Influences</lable>
                     <input
                         className="input is-rounded" 
                         type='text' placeholder='Please separate by comma'
                         name='influences'
                         onChange={this.props.handleChange}
                         value={this.props.influences}
-                    />
+                  
+                  /><div style={{color:"white", marginTop: 15}}></div>
                     <button className="button is-rounded" type='submit' style={{marginTop: 30}}>Register</button>
                 </form>
               </div>

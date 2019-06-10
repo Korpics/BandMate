@@ -194,10 +194,10 @@ class App extends Component {
         </div>        
         </div>
         <div style={{display: "flex", flexDirection: "column"}}>
-        <footer className="footer" style={{background:"rgba(240, 161, 242, 0.1)", justifyContent: "flex-end"}}>
-        <div className="content has-text-centered" >
+        <footer className="footer" style={{background:"rgba(240, 161, 242, 0.0)",marginTop:80, justifyContent: "flex-end"}}>
+        <div className="content has-text-centered"  >
           <p style={{color:"white"}}>
-            <strong style={{color:"white"}}>BandMate</strong>.  Currently work-in-progress
+            <strong style={{color:"white"}}>BandMate</strong>.  Work in progress
           </p>
         </div>
       </footer>

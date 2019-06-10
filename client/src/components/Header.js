@@ -11,7 +11,7 @@ class Header extends Component {
     return(
       <div className="Navbar">
         <Link to='/'>
-    <img className="imageClass" src={'https://i.imgur.com/pMvioiT.png'} alt='home' style={{marginTop:40, marginBottom: 20}} />
+    <img className="imageClass" src={'https://i.imgur.com/pMvioiT.png'} alt='home' style={{marginTop:60, marginBottom: 20}} />
           </Link>
       </div>
     );
