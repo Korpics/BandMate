@@ -4,6 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const logger = require('morgan')
 const { userRouter } = require('./routes/userRouter');
+const { postRouter }= require('./routes/postRouter');
 const { authorized } = require('./auth/auth');
 
 
@@ -18,6 +19,7 @@ app.use(passport.initialize());
 
 // app.use('/auth', userRouter)
 app.use('/users', userRouter)
+app.use('/posts', postRouter);
 
 app.get('/', async (req, res) => {
   try {

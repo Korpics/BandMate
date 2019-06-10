@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { login, signup } from './services/authApi';
 import { getAllUsers, Base_URL} from './services/userApi'
+import { fetchAllPosts } from './services/postApi'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Header from './components/Header'
@@ -16,6 +17,7 @@ class App extends Component {
     super();
     this.state = {
       allUsers: [],
+      allPosts: [],
       authenticated: false,
       username: '',
       password: '',
@@ -112,6 +114,7 @@ class App extends Component {
 
   componentDidMount=()=>{
     this.fetchAllUsers()
+    this.getAllPosts()
     console.log(this.state)
 
   }
@@ -119,6 +122,12 @@ class App extends Component {
   fetchAllUsers = async () => {
     const allUsers =  await getAllUsers();
     await this.setState({allUsers});
+    console.log(this.state)
+
+   }
+   getAllPosts = async () => {
+    const allPosts =  await fetchAllPosts();
+    await this.setState({allPosts});
     console.log(this.state)
 
    }
@@ -142,6 +151,8 @@ class App extends Component {
         <div className="App">
           <Header authenticated={this.state.authenticated} user={this.state.user}/>
           <Login 
+            allUsers={this.state.allUsers}
+            allPosts={this.state.allPosts}
             authenticated={this.state.authenticated} 
             handleLogin={this.handleLogin}
             username={this.state.username}
@@ -156,6 +167,8 @@ class App extends Component {
         <Header authenticated={this.state.authenticated}/>
           <Signup
             user={this.state.user}
+            allUsers={this.state.allUsers}
+            allPosts={this.state.allPosts}
             authenticated={this.authenticated}
             handleSignup={this.handleSignup}
             handleLogin={this.handleLogin}
@@ -194,7 +207,9 @@ class App extends Component {
         return (
           <Dashboard 
           fetch={this.fetchAllUsers}
+          getAllPosts={this.getAllPosts}
           allUsers={this.state.allUsers}
+          allPosts={this.state.allPosts}
           user={this.state.user}
           authenticated={this.authenticated}
           handleSignup={this.handleSignup}
