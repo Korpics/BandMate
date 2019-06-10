@@ -32,55 +32,176 @@ Priority Matrix
 
 MVP/PostMVP - 5min
 MVP
+Auth/JWT
+Users can create update and delete their profiles. 
+They can Create and Delete their own posts that are shwon to all users. (ads placed for creating music projects with others who are interested)
 
-Basic tinder like app that renders random users based on what your needs are. (e.g. Users from brooklyn who like this town needs guns and play drums).
-This search will return an array of users - which you can swipe through in a 'tinder-esque' fashion - while passing or favoriting each user. 
-Users will have their genres influences instruments location etc saved to their user profile during profile creation.
-Email option as a minimum (ONLY when matches are made)
-Flagging users results in an email to admin - who reviews accordingly. 
 
 POST
 Chat function within the application.
 Location is automatically sent to the back-end when user is signed in.
 Default homepage renders the closest matching musicians (this would be a summary of all the user's properties + distance)
 Toggle Sound per 'User Card' to hear a snippet of original music from the creator/user.
+Can add comments to ads.
 
 
 ERD
 https://imgur.com/a/vFucqDA (Still figuring this out)
 
 UI Components
-App.js stateful
-SignUp stateful
-LogIn stateful
+
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── components
+    │   ├── Ads.js
+    │   ├── Dashboard.js
+    │   ├── Footer.js
+    │   ├── Friends.js
+    │   ├── Header.js
+    │   ├── Login.js
+    │   ├── Main.js
+    │   ├── Match.js
+    │   ├── Post.js
+    │   ├── Settings.js
+    │   ├── Signup.js
+    │   └── Users.js
+    ├── index.css
+    ├── index.js
+    └── services
+        ├── authApi.js
+        ├── postApi.js
+        └── userApi.js
 
 
-SignUp - will contain the form used to create a user
-LogIn - will contain the form used for user login
-MatchMaker - will contain the card swiping functionality as the user searches through potential matches
-
-
-SAMPLE.....
-Component	Priority
-SignUp - expecting this and LogIn to both take 3 hours (auth) each. 
-LogIn - 3 hours Estimated Time.
-MatchMaker - I expect the CSS to be the real challenge here. May need to mimick a carasoul effect as a swipe feels inorganic outside of react native and may take too much time to implement. 6 Hours Total Expected
 
 
 
 Additional Libraries
-May use https://db-ip.com for continuous location use POST mvp
-https://fakejson.com may use this site to fake user data for testing purposes
+Auth/JWT/Passport
+React
+Bulma
 
 SAMPLE.....
 Library	What it Does
 React - front end UI
 Express/Node - BackEnd API creation.
 JWT/bcrypt/passport - Authorization
-CSS - will attempt to maintain basic css instead of branching out into Bootstrap but may need to. 
+Bulma - will attempt to maintain basic css instead of branching out into Bootstrap but may need to. 
 
 Code Snippet
-TBD
+```  async handleLogin() {
+    try {
+        const { username, password} = this.state;
+        const response = await login({username, password});
+        console.log(response.user);
+        const user = response.user
+       await  this.setState({
+            authenticated: true,
+            user: user,
+            signedup: true
+            
+        })
+        console.log(this.state)
+    }
+    catch (e) {
+        console.log(e.message);
+    }
+  }
+
+  async handleSignup(){
+    try {
+      const { 
+        username, password, 
+        name, age, borrough, 
+        influences, instrument, 
+        genre, bio, link
+      } = this.state;
+
+      const payload = {
+        "username": username,
+        "password": password,
+        "name": name,
+        "bio": bio,
+        "borrough": borrough,
+        "influences": influences,
+        "instrument": instrument,
+        "genre": genre,
+        "link": link,
+        "age": age
+      }
+
+       console.log(this.state)
+      const response = await signup(payload);
+      this.setState({signedup: true})
+    }
+    catch (e) {
+        console.log(e.message);
+  }
+
+  }
+  handleChange = (e) => {
+    const key = e.target.name;
+    const value = e.target.value;
+    this.setState(prevState => {
+        return {[key]: value}});
+  }
+
+
+  handleLogOut = async(e) => {
+    e.preventDefault();
+    await this.setState({
+      authenticated: false,
+      username: '',
+      password: '',
+      name: '',
+      age: '',
+      borrough: '',
+      influences: '',
+      instrument: '',
+      genre: '',
+      bio: '',
+      link: '',
+      signedup: false,
+      signupselect:false
+  })
+  };
+
+  componentDidMount=()=>{
+    this.fetchAllUsers()
+    this.getAllPosts()
+    console.log(this.state)
+
+  }
+
+  fetchAllUsers = async () => {
+    const allUsers =  await getAllUsers();
+    await this.setState({allUsers});
+    console.log(this.state)
+
+   }
+   getAllPosts = async () => {
+    const allPosts =  await fetchAllPosts();
+    await this.setState({allPosts});
+    console.log(this.state)
+
+   }
+
+   signupSelect = async(e) => {
+     e.preventDefault()
+     await this.setState({
+        signupselect: true
+     })
+     
+
+   }
+   truthSet = async (e) => {
+     e.preventDefault();
+    await this.setState({signedup: true})
+   }```
+   
+   
 
 Change Log
 TBD This will be full though I am sure.
